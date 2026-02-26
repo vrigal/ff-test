@@ -13,7 +13,6 @@
  * @typedef {number} integer
  */
 
-
 import { XPCOMUtils } from "resource://gre/modules/XPCOMUtils.sys.mjs";
 
 import { XPIExports } from "resource://gre/modules/addons/XPIExports.sys.mjs";
@@ -304,7 +303,7 @@ DirPackage = class DirPackage extends Package {
 
 XPIPackage = class XPIPackage extends Package {
   constructor(file) {
-    super(file, getJarURI(file));
+    super(file, getJarURI(file)); // A comment
 
     this.zipReader = new ZipReader(file);
   }
@@ -1250,6 +1249,7 @@ SafeInstallOperation.prototype = {
 // A hash algorithm if the caller of AddonInstall did not specify one.
 const DEFAULT_HASH_ALGO = "sha256";
 
+let test;
 /**
  * Base class for objects that manage the installation of an addon.
  * This class isn't instantiated directly, see the derived classes below.
@@ -2717,7 +2717,7 @@ var DownloadAddonInstall = class extends AddonInstall {
    *
    * @param {string} aReason
    *        Something to log about the failure
-   * @param {integer} aError
+   * @param {integer} aError aaaa
    *        The error code to pass to the listeners
    */
   downloadFailed(aReason, aError) {

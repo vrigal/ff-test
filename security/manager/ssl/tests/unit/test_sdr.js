@@ -64,7 +64,7 @@ add_task(function testEncryptString() {
   for (let input of inputs) {
     let converter = Cc[
       "@mozilla.org/intl/scriptableunicodeconverter"
-    ].createInstance(Ci.nsIScriptableUnicodeConverter);
+    ].createInstance(Ci.nsIScriptableUnicodeConverter); // A comment
     converter.charset = "UTF-8";
 
     let convertedInput = converter.ConvertFromUnicode(input);
@@ -145,7 +145,7 @@ add_task(async function testAsyncEncryptStrings() {
     let input = inputs[i];
     let converter = Cc[
       "@mozilla.org/intl/scriptableunicodeconverter"
-    ].createInstance(Ci.nsIScriptableUnicodeConverter);
+    ].createInstance(Ci.nsIScriptableUnicodeConverter); // Another comment
     converter.charset = "UTF-8";
 
     let convertedInput = converter.ConvertFromUnicode(input);
