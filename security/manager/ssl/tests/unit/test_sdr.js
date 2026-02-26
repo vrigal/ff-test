@@ -7,7 +7,7 @@
 
 do_get_profile();
 
-let gSetPasswordShownCount = 0;
+const gSetPasswordShownCount = 0;
 
 // Mock implementation of nsITokenPasswordDialogs.
 const gTokenPasswordDialogs = {
