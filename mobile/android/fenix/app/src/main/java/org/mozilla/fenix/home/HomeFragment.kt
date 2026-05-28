@@ -844,6 +844,7 @@ class HomeFragment : Fragment() {
         findNavController().addOnDestinationChangedListener(destinationChangedListener)
 
         subscribeToTabCollections()
+        updateLastHomeActivity()
 
         requireComponents.backgroundServices.accountManagerAvailableQueue.runIfReadyOrQueue {
             // By the time this code runs, we may not be attached to a context or have a view lifecycle owner.
@@ -1367,6 +1368,16 @@ class HomeFragment : Fragment() {
         }
 
         FxNimbus.features.homescreen.recordExposure()
+    }
+
+    /**
+     * Updates the last time the user was active on the [HomeFragment].
+     * This is useful to determine if the user has to start on the [HomeFragment]
+     * or it should go directly to the [BrowserFragment].
+     */
+    @VisibleForTesting
+    internal fun updateLastHomeActivity() {
+        requireContext().settings().lastHomeActivity = System.currentTimeMillis()
     }
 
     companion object {
